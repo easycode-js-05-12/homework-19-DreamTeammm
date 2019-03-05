@@ -32,7 +32,7 @@ export class NewsComponent {
 				${ this.style() }
 			</style>
 			<!-- Component html -->
-			<div class="news-wrap container">
+			<div class="news-container container">
 				<div class="row"></div>
 			</div>
 		`;
@@ -85,7 +85,7 @@ export class NewsComponent {
 	}
 
 	afterRender() {
-		this._newsContainer = document.querySelector('.news-wrap .row');
+		this._newsContainer = document.querySelector('.news-container .row');
 
 		this._news.news.forEach((news) => {
 			this.addNews(news);

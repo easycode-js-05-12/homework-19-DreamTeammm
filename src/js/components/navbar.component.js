@@ -34,7 +34,10 @@ export class NavbarComponent {
 					</li>
 					<li class="nav-item ml-3">
 						<a class="nav-link" href="/#/news">News</a>
-					</li>  
+					</li>
+					<li class="nav-item ml-3">
+						<a class="nav-link" href="/#/winners">Winners</a>
+					</li>
 					<li class="nav-item ml-3">
 						<a class="nav-link" href="/#/payments">Payments</a>
 					</li>

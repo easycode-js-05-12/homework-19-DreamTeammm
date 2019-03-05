@@ -9,6 +9,7 @@ import { AuthGuard } from "./guard/auth.guard";
 import { PaymentGuard } from "./guard/payment.guard";
 import { PaymentComponent } from "./components/payment.component";
 import { NavbarComponent } from "./components/navbar.component";
+import { WinnersComponent } from "./components/winners.component";
 
 const activeRoute = new ActiveRoute();
 const authGuard = new AuthGuard();
@@ -36,6 +37,10 @@ const routes = {
 	'/payments': {
 		component: new PaymentComponent(),
 		guard: [authGuard, paymentGuard],
+	},
+	'/winners': {
+		component: new WinnersComponent(),
+		guard: [authGuard],
 	},
 	'**': {
 		component: new NotFoundComponent()
