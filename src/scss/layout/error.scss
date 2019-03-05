@@ -1,0 +1,67 @@
+.error-box {
+	padding: 10px;
+	font-size: 14px;
+	max-width: 684px;
+	min-height: 100vh;
+	color: $dodger-blue;
+	@include media('>=tablet') {
+		font-size: 16px;
+	}
+	.image-holder {
+		padding: 0 20px;
+		margin-bottom: 5.4vh;
+		height: 290px;
+		background: url("../images/error-404.png") center no-repeat / contain;
+		img {
+			vertical-align: top;
+		}
+	}
+	.text-box {
+		line-height: 1.5;
+		.text-holder {
+			margin-bottom: 3.7vh;
+			p {
+				margin-bottom: 1.2vh;
+				&:last-of-type, &:only-child {
+					margin-bottom: 0 !important;
+				}
+			}
+		}
+	}
+	.btn-holder {
+		padding-bottom: 20px;
+	}
+}
+
+.error-header {
+	margin-bottom: 8vh;
+	.maintenance-wrap & {
+		margin-bottom: 5.4vh;
+	}
+	.logo {
+		height: 158px;
+		display: block !important;
+		vertical-align: top;
+ 		background: url("../images/logo.png") center no-repeat;
+	}
+	img {
+		vertical-align: top;
+	}
+}
+
+.title-error {
+	font-size: 20px;
+	font-weight: 700;
+	margin-bottom: 1.4vh;
+	@include media('>=tablet') {
+		font-size: 28px;
+	}
+}
+
+.btn-error {
+	font-size: 15px;
+	padding: 0.529em 0.882em 0.588em;
+	@include media('>=tablet') {
+		font-size: 17px;
+	}
+}

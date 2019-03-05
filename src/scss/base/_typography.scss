@@ -1,0 +1,60 @@
+// =======================================
+// Typography
+// =======================================
+
+// Headings
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
+.h {
+	font: {
+		weight: $headings-font-weight;
+		family: $headings-font-family;
+	};
+	color: $headings-color;
+	line-height: $headings-line-height;
+	margin: 0 0 $headings-margin-bottom;
+}
+
+h1, .h1 {
+	font-size: $h1-font-size;
+}
+
+h2, .h2 {
+	font-size: $h2-font-size;
+}
+
+h3, .h3 {
+	font-size: $h3-font-size;
+}
+
+h4, .h4 {
+	font-size: $h4-font-size;
+}
+
+h5, .h5 {
+	font-size: $h5-font-size;
+}
+
+h6, .h6 {
+	font-size: $h6-font-size;
+}
+
+p {
+	margin: 0 0 1rem;
+	&:last-of-type, &:only-child {
+		margin-bottom: 0 !important;
+	}
+}
+
+a {
+	color: $link-color;
+	text-decoration: $link-decoration;
+	transition: color $animation-speed ease-in-out;
+	&:hover, &:focus {
+		color: $link-hover-color;
+	}
+}

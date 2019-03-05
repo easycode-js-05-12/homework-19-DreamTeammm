@@ -1,0 +1,8 @@
+@mixin animate($properties, $duration: $animation-speed, $easing: $animation-timing-function) {
+	$list:();
+	@each $prop in $properties {
+		$str: #{$prop} #{$duration} #{$easing};
+		$list: join($list, #{$str}, comma);
+	}
+	transition: $list;
+}
