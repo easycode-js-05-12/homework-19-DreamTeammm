@@ -20,7 +20,7 @@ export class NewsComponent {
 	 * @param {object} news - object with full information about the news
 	 */
 	addNews(news) {
-		const template = this.newsTemplate(news);
+		const template = this._newsTemplate(news);
 
 		this._newsContainer.insertAdjacentHTML("afterbegin", template);
 	}
@@ -38,7 +38,7 @@ export class NewsComponent {
 		`;
 	}
 
-	newsTemplate(news) {
+	_newsTemplate(news) {
 		return `
 			<div class="col col-12 mb-3 mb-md-5">
 				<div class="card d-flex flex-md-row">

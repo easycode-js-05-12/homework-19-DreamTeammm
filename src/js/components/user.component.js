@@ -8,13 +8,18 @@ export class UserComponent {
 		this._authService = new AuthService();
 		this._userService = new UserService();
 
-		this._authUserId = this._authService.userId;
-		this._activeUserId = this._activeRoute.parseRequestURL().id;
+		this._activeUserId;
 		this._user;
+		this._userImages = [];
+		this._imagesTemplate;
 	}
 
 	async beforeRender() {
+		this._activeUserId = this._activeRoute.parseRequestURL().id;
+
 		this._user = await this._userService.getUser(this._activeUserId);
+		this._userImages = await this._userService.getUserImages(this._activeUserId);
+		this._imagesTemplate = this._userImages.images.map((image) => this._singleImageTemplate(image));
 	}
 
 	render() {
@@ -28,6 +33,31 @@ export class UserComponent {
 			<div class="user-avatar-container d-flex justify-content-center">
 				<div class="user-avatar rounded-circle">
 					<img class="w-100" src="${ this._user.avatar }" alt="${ this._user.full_name }">
+				</div>
+			</div>
+			<div class="images-container container">
+				<div class="row">
+					${ this._imagesTemplate.join('') }
+				</div>
+			</div>
+		`;
+	}
+
+	_singleImageTemplate(image) {
+		return `
+			<div class="col col-12 col-md-6 col-lg-4">
+				<div class="img-item position-relative text-center overflow-hidden">
+					<img class="w-100 h-100" src="${ image.url }" alt="image description">
+					<div class="img-item-hover position-absolute text-white">
+						<span class="mx-1">
+							<i class="fas fa-eye"></i>
+							${ image.views.length }
+						</span>
+						<span class="mx-1">
+							<i class="fas fa-thumbs-up"></i>
+							${ image.likes.length }
+						</span>
+					</div>
 				</div>
 			</div>
 		`;
@@ -46,6 +76,26 @@ export class UserComponent {
 				width: 138px;
 				height: 138px;
 				overflow: hidden;
+			}
+			.img-item {
+				height: 200px;
+				margin-bottom: 30px;
+				background-color: #000;
+			}
+			.img-item img {
+				object-fit: cover;
+			}
+			.img-item-hover {
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				opacity: 0;
+				background: rgba(0, 0, 0, .5);
+				transition: opacity .28s ease-in;
+			}
+			.img-item:hover .img-item-hover {
+				opacity: 1;
 			}
 		`;
 	}

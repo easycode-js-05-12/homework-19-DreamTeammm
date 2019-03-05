@@ -10,6 +10,10 @@ export class AuthService {
 		return localStorage.getItem('sn_user_id');
 	}
 
+	get isSubscribed() {
+		return false;
+	}
+
 	login(email, password) {
 		const http = new Http();
 
@@ -22,6 +26,15 @@ export class AuthService {
 					resolve(response);
 				})
 				.catch((err) => reject(err));
+		});
+	}
+
+	logout() {
+		return new Promise((resolve, reject) => {
+			localStorage.removeItem('sn_user_id');
+			localStorage.removeItem('sn_user_token');
+
+			resolve();
 		});
 	}
 
