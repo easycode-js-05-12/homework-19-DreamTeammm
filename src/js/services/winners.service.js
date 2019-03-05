@@ -1,8 +1,6 @@
 import { Http } from "../core/http.service";
 import { ENV } from "../config/env";
 
-// /api/public/winners?part=1&limit=15
-
 export class WinnersService {
 	getWinners(token) {
 		const http = new Http();
